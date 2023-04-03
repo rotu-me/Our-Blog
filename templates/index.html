@@ -1,9 +1,86 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Our Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+      .bg-img {
+  background-image: url("static/background-img.jpg");
+  min-height: 200px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+      .search
+{
+	    position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			padding: 20px;
+			border-radius: 5px;
+	    -moz-border-radius: 5px;
+	    -webkit-border-radius: 5px;
+}
+  form {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+
+	input 
+   {
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+		}
+
+
+.search input[type="text"]:focus
+{
+	outline: 0;
+}
+
+.search input[type="submit"]
+{
+	border: 0px;
+	background: none;
+	background-color: #CF5C3F;
+	color: #fff;
+	padding: 10px;
+	border-radius-top-right: 5px;
+	-moz-border-radius-top-right: 5px;
+	-webkit-border-radius-top-right: 5px;
+	border-radius-bottom-right: 5px;
+	-moz-border-radius-bottom-right: 5px;
+	-webkit-border-radius-bottom-right: 5px;
+  cursor:pointer;
+}
+    </style>
   </head>
   <body>
-    This is the content
+    <header>
+      {% include "nav.html"%}
+    </header>
+    <div class="bg-img">
+      <div class= "search">
+      <form action="search-form">
+      <input type="text" placeholder="Search for posts, authors, categories and more..">
+      <input type="submit" value="Submit">
+    </form>
+      </div>
+    </div>
+    {% include "post.html" %}
+    <footer> {% include "footer.html"%} 
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </body>
 </html>
