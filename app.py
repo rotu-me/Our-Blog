@@ -1,11 +1,17 @@
 from flask import Flask, render_template
-
+from database import get_posts
 app = Flask(__name__)
 
 
 @app.route("/")
 def homepage():
-  return render_template("index.html")
+  posts = get_posts()
+  return render_template("index.html",
+                        posts = posts)
+
+@app.route("/api/posts")
+def list_posts():
+  return jsonify(posts)
 
 
 if (__name__) == "__main__":
